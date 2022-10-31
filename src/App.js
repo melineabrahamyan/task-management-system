@@ -4,11 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/login";
 import Home from "./components/home";
 import Board from "./components/board";
-import TaskDetails from "./components/taskDetails";
+import TaskDetails from "./pages/taskDetails";
+import LoginButton from "./components/login/loginButton";
 
 function App() {
   return (
     <>
+      <LoginButton />
       <Provider>
         <Routes>
           <Route path="/" element={<Home />} />

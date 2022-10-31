@@ -1,13 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 import { boards } from "./data";
+import { reducer } from "./reducer";
 
-const defaultState = boards;
-
-export const Context = createContext(defaultState);
+export const Context = createContext(boards);
 
 export default function Provider({ children }) {
-  const [state, setState] = useState(defaultState);
+  const [state, dispatch] = useReducer(reducer, { isLoggedIn: false, boards });
+
   return (
-    <Context.Provider value={{ state, setState }}>{children}</Context.Provider>
+    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
   );
 }

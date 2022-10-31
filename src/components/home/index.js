@@ -9,9 +9,17 @@ export default function Home() {
   const handleClcik = (board) => {
     navigate(`/boards/${board}`);
   };
+
+  const boards = state.boards.reduce((aggr, board) => {
+    aggr[board.category] = aggr[board.category]
+      ? [...aggr[board.category], board]
+      : [board];
+    return aggr;
+  }, {});
+
   return (
     <div>
-      {Object.keys(state).map((board) => (
+      {Object.keys(boards).map((board) => (
         <div
           onClick={() => {
             handleClcik(board);
