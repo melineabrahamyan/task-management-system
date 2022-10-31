@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../../context";
 import Tasks from "../../pages/tasks";
+import LoginButton from "../login/loginButton";
 
 export default function Board() {
   const { board } = useParams();
@@ -17,17 +18,23 @@ export default function Board() {
     }, {});
   return (
     <>
-      <h2>{board}</h2>
-      <div className="board">
-        {Object.keys(BoardData).map((key, index) => (
-          <Tasks
-            key={index}
-            status={key}
-            tasks={BoardData[key]}
-            board={board}
-          />
-        ))}
-      </div>
+      {state.userInfo.isLoggedIn ? (
+        <>
+          <h2>{board}</h2>
+          <div className="board">
+            {Object.keys(BoardData).map((key, index) => (
+              <Tasks
+                key={index}
+                status={key}
+                tasks={BoardData[key]}
+                board={board}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <LoginButton />
+      )}
     </>
   );
 }

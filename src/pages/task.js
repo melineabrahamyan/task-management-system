@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../context";
 
-export default function Task({ id, title, description, priority, category }) {
+export default function Task({ id, title, description, priority }) {
   const navigate = useNavigate();
   const handleVisit = () => {
     navigate(`${id}`);

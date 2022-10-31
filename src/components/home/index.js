@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context";
+import LoginButton from "../login/loginButton";
 
 export default function Home() {
   const { state } = useContext(Context);
@@ -19,15 +20,21 @@ export default function Home() {
 
   return (
     <div>
-      {Object.keys(boards).map((board) => (
-        <div
-          onClick={() => {
-            handleClcik(board);
-          }}
-        >
-          {board}
+      {state.userInfo.isLoggedIn ? (
+        <div>
+          {Object.keys(boards).map((board) => (
+            <div
+              onClick={() => {
+                handleClcik(board);
+              }}
+            >
+              {board}
+            </div>
+          ))}
         </div>
-      ))}
+      ) : (
+        <LoginButton />
+      )}
     </div>
   );
 }

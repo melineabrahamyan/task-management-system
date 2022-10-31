@@ -51,5 +51,14 @@ export function reducer(state, action) {
           return t;
         }),
       };
+    case "LOGIN":
+      return {
+        ...state,
+        userInfo: {
+          isLoggedIn: true,
+          username: action.payload.username,
+          password: action.payload.password,
+        },
+      };
   }
 }

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import LoginButton from "../components/login/loginButton";
 import { Context } from "./../context";
 
 export default function TaskDetails() {
@@ -39,65 +40,71 @@ export default function TaskDetails() {
 
   return (
     <>
-      {inEditMode ? (
-        <div>
-          <div>
-            title:{" "}
-            <input
-              value={titleValue}
-              onChange={(e) => {
-                setTitleValue(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            description:{" "}
-            <input
-              value={descriptionValue}
-              onChange={(e) => {
-                setDescriptionValue(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            status:{" "}
-            <input
-              value={statusValue}
-              onChange={(e) => {
-                setStatusValue(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            category:{" "}
-            <input
-              value={categoryValue}
-              onChange={(e) => {
-                setCategoryValue(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            priority:{" "}
-            <input
-              value={priorityValue}
-              onChange={(e) => {
-                setPriorityValue(e.target.value);
-              }}
-            />
-          </div>
-          <button onClick={handleSave}>save</button>
-          <button onClick={() => setInEditMode(false)}>cancel</button>
-        </div>
+      {state.userInfo.isLoggedIn ? (
+        <>
+          {inEditMode ? (
+            <div>
+              <div>
+                title:{" "}
+                <input
+                  value={titleValue}
+                  onChange={(e) => {
+                    setTitleValue(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                description:{" "}
+                <input
+                  value={descriptionValue}
+                  onChange={(e) => {
+                    setDescriptionValue(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                status:{" "}
+                <input
+                  value={statusValue}
+                  onChange={(e) => {
+                    setStatusValue(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                category:{" "}
+                <input
+                  value={categoryValue}
+                  onChange={(e) => {
+                    setCategoryValue(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                priority:{" "}
+                <input
+                  value={priorityValue}
+                  onChange={(e) => {
+                    setPriorityValue(e.target.value);
+                  }}
+                />
+              </div>
+              <button onClick={handleSave}>save</button>
+              <button onClick={() => setInEditMode(false)}>cancel</button>
+            </div>
+          ) : (
+            <div>
+              <div>title: {title}</div>
+              <div>description: {description}</div>
+              <div>status: {status}</div>
+              <div>category: {category}</div>
+              <div>priority: {priority}</div>
+              <button onClick={() => setInEditMode(true)}>edit</button>
+            </div>
+          )}
+        </>
       ) : (
-        <div>
-          <div>title: {title}</div>
-          <div>description: {description}</div>
-          <div>status: {status}</div>
-          <div>category: {category}</div>
-          <div>priority: {priority}</div>
-          <button onClick={() => setInEditMode(true)}>edit</button>
-        </div>
+        <LoginButton />
       )}
     </>
   );
