@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoginButton from "../components/login/loginButton";
+import ProfileButton from "../components/profile/profileButton";
 import { Context } from "./../context";
 
 export default function TaskDetails() {
@@ -42,6 +43,7 @@ export default function TaskDetails() {
     <>
       {state.userInfo.isLoggedIn ? (
         <>
+          <ProfileButton />
           {inEditMode ? (
             <div>
               <div>
@@ -64,12 +66,14 @@ export default function TaskDetails() {
               </div>
               <div>
                 status:{" "}
-                <input
+                <select
                   value={statusValue}
-                  onChange={(e) => {
-                    setStatusValue(e.target.value);
-                  }}
-                />
+                  onChange={(e) => setStatusValue(e.target.value)}
+                >
+                  <option value="done">done</option>
+                  <option value="doing">doing</option>
+                  <option value="todo">todo</option>
+                </select>
               </div>
               <div>
                 category:{" "}

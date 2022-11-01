@@ -3,30 +3,34 @@ import { useParams } from "react-router-dom";
 import { Context } from "../../context";
 import Tasks from "../../pages/tasks";
 import LoginButton from "../login/loginButton";
+import ProfileButton from "../profile/profileButton";
 
 export default function Board() {
   const { board } = useParams();
   const { state } = useContext(Context);
 
-  const BoardData = state.boards
+  const boardData = state.boards
     .filter((task) => task.category === board)
-    .reduce((aggr, task) => {
-      aggr[task.status] = aggr[task.status]
-        ? [...aggr[task.status], task]
-        : [task];
-      return aggr;
-    }, {});
+    .reduce(
+      (aggr, task) => {
+        aggr[task.status]?.push(task);
+        return aggr;
+      },
+      { done: [], doing: [], todo: [] }
+    );
+
   return (
     <>
       {state.userInfo.isLoggedIn ? (
         <>
+          <ProfileButton />
           <h2>{board}</h2>
           <div className="board">
-            {Object.keys(BoardData).map((key, index) => (
+            {Object.keys(boardData).map((status, index) => (
               <Tasks
                 key={index}
-                status={key}
-                tasks={BoardData[key]}
+                status={status}
+                tasks={boardData[status]}
                 board={board}
               />
             ))}

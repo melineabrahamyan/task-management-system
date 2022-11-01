@@ -5,7 +5,7 @@ import Login from "./components/login";
 import Home from "./components/home";
 import Board from "./components/board";
 import TaskDetails from "./pages/taskDetails";
-import Profile from "./pages/profile";
+import Profile from "./components/profile";
 
 function App() {
   return (

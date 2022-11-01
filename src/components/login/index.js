@@ -12,7 +12,7 @@ export default function Login() {
   const handleLogin = () => {
     if (username && password) {
       dispatch({ type: "LOGIN", payload: { username, password } });
-      navigate("/profile"); // profile
+      navigate("/profile");
     }
   };
   return (

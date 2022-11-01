@@ -60,5 +60,10 @@ export function reducer(state, action) {
           password: action.payload.password,
         },
       };
+    case "ADD_BOARD":
+      return {
+        ...state,
+        boards: [...state.boards, { category: action.payload.newBoardName }],
+      };
   }
 }

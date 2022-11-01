@@ -59,12 +59,12 @@ export default function Tasks({ status, tasks, board }) {
             />
           </div>
           <div>
-            <input
-              placeholder="priority"
-              onChange={(e) => {
-                setPriorityValue(e.target.value);
-              }}
-            />
+            priority:{" "}
+            <select onChange={(e) => setPriorityValue(e.target.value)}>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
           </div>
           <button onClick={handleSave}>Save</button>
           <button onClick={() => setInAddMode(false)}>cancel</button>
