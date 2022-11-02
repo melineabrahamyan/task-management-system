@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Context } from "../../context";
 import Tasks from "../../pages/tasks";
 import LoginButton from "../login/loginButton";
-import ProfileButton from "../profile/profileButton";
+import "./style.css";
 
 export default function Board() {
   const { board } = useParams();
@@ -23,9 +23,8 @@ export default function Board() {
     <>
       {state.userInfo.isLoggedIn ? (
         <>
-          <ProfileButton />
-          <h2>{board}</h2>
-          <div className="board">
+          <h1>{board}</h1>
+          <div className="board-wrapper">
             {Object.keys(boardData).map((status, index) => (
               <Tasks
                 key={index}

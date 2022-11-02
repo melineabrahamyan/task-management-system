@@ -1,0 +1,72 @@
+.details{
+    margin: 0 auto;
+    width: 500px;
+    height: 350px;
+    background-color: rgb(240, 239, 239);
+    box-shadow: 9px 10px 11px 10px rgb(207, 207, 207);
+    display: flex;
+    border-radius: 30px;
+    flex-direction: column;
+   
+}
+
+.details-container{
+    display: flex;
+    flex-direction: column;
+   gap: 40px;
+   align-items: center;
+  
+}
+
+.detail{
+    padding: 20px;
+    text-align: center;
+  font-size: 20px;
+}
+
+.edit-button{
+    font-size: 20px;
+    cursor: pointer;
+   border: none;
+    color: #b103fc;
+   background-color: white;
+    font-weight: bold;
+    width: 200px;
+   justify-content: center;
+}
+
+.detail-input{ 
+    height: 20px;
+    font-size: 16px;
+    padding-left: 10px;
+    width: 200px; 
+    background-color: white;
+}
+
+.select{
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.save-cancel{
+    font-size: 20px;
+    cursor: pointer;
+   border: none;
+    color: #b103fc;
+   background-color: white;
+    font-weight: bold;
+    width: 150px;
+   justify-content: center;
+}
+
+.save-cancel-btns{
+    display: flex;
+    flex-direction: row;
+  border: none;
+    justify-content: center;
+    margin-top: 40px;
+}

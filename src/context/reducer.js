@@ -1,6 +1,7 @@
 export function reducer(state, action) {
   switch (action.type) {
     case "ADD_TASK":
+      console.log("add");
       const {
         payload: { status, board, description, priority, title },
       } = action;
@@ -58,6 +59,15 @@ export function reducer(state, action) {
           isLoggedIn: true,
           username: action.payload.username,
           password: action.payload.password,
+        },
+      };
+    case "LOGOUT":
+      return {
+        ...state,
+        userInfo: {
+          isLoggedIn: false,
+          username: null,
+          password: null,
         },
       };
     case "ADD_BOARD":

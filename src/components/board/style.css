@@ -1,0 +1,83 @@
+.board-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin: 40px 50px;
+    justify-content: center;
+}
+
+.single-board{
+    width: 300px;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(240, 239, 239);
+    box-shadow: 9px 10px 11px 10px rgb(207, 207, 207);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
+}   
+
+.task{
+    background-color: white;
+    border-radius: 15px;
+    justify-content: center;
+    padding: 10px 10px;
+}
+
+.visit-delete{
+    font-size: 16;
+    cursor: pointer;
+   border: none;
+    color: #b103fc;
+   background-color: white;
+    font-weight: bold;
+    width: 50px;
+   justify-content: center;
+   margin: 0 20px;
+}
+
+.visit-delete-btns{
+    display: flex;
+    flex-direction: row;
+  border: none;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.add-btn{
+    background-color: #b103fc;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.add-btn-wrapper{
+    text-align: center;
+    
+}
+
+.title-desc-input{
+    width: 260px;
+    height: 20px;
+    background-color:white;
+    padding-left: 10px;
+    font-size: 16px;
+    
+}
+
+.priority-select{
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+    width: 210px;
+    height: 20px;
+}

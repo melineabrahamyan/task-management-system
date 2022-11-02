@@ -6,16 +6,49 @@ import Home from "./components/home";
 import Board from "./components/board";
 import TaskDetails from "./pages/taskDetails";
 import Profile from "./components/profile";
+import Layout from "./components/layout";
 
 function App() {
   return (
     <>
       <Provider>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/boards/:board" element={<Board />} />
-          <Route path="boards/:board/:taskId" element={<TaskDetails />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/boards/:board"
+            element={
+              <Layout>
+                <Board />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="boards/:board/:taskId"
+            element={
+              <Layout>
+                <TaskDetails />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/profile"
+            element={
+              <Layout>
+                <Profile />
+              </Layout>
+            }
+          />
+
           <Route path="/sign-in" element={<Login />} />
         </Routes>
       </Provider>

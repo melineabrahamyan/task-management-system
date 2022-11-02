@@ -1,0 +1,24 @@
+.boards{
+    height: 300px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+}
+
+.board{
+    box-shadow: 9px 10px 11px 10px rgb(207, 207, 207);
+    height: 200px;
+    width: 400px;
+    align-items: center;
+    background-color: rgb(240, 239, 239);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+}

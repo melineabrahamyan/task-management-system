@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../context";
+import "./../components/board/style.css";
 
 export default function Task({ id, title, description, priority }) {
   const navigate = useNavigate();
@@ -18,8 +19,14 @@ export default function Task({ id, title, description, priority }) {
       <div>title: {title}</div>
       <div>description: {description}</div>
       <div>priority {priority}</div>
-      <button onClick={handleVisit}>visit</button>
-      <button onClick={handleDelete}>delete</button>
+      <div className="visit-delete-btns">
+        <button className="visit-delete" onClick={handleVisit}>
+          visit
+        </button>
+        <button className="visit-delete" onClick={handleDelete}>
+          delete
+        </button>
+      </div>
     </div>
   );
 }

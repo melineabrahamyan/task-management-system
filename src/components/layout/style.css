@@ -1,0 +1,32 @@
+.navbar{
+    height: 70px;
+    width: 100vw;
+    background-color: #b103fc;
+    vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+}
+
+.buttons{
+   float: right;
+  height: 100%;
+}
+
+.navbar-button{
+    height: 100%;
+    width: 100px;
+    background-color: #b103fc;
+    border: none;
+    color: #e1e3eb;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar-button:hover{
+    background-color: #8e04c9;
+}
+
+.navbar-button:focus{
+  background-color: #8e04c9;
+}

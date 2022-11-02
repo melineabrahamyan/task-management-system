@@ -1,18 +1,20 @@
 import { useContext, useState } from "react";
 import { Context } from "../context";
 import Task from "./task";
+import "./../components/board/style.css";
+import isValid from "../helpers/validation";
 
 export default function Tasks({ status, tasks, board }) {
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
-  const [priorityValue, setPriorityValue] = useState("");
+  const [priorityValue, setPriorityValue] = useState("low");
 
   const [inAddMode, setInAddMode] = useState(false);
 
   const { dispatch } = useContext(Context);
 
   const handleSave = () => {
-    if (titleValue && descriptionValue && priorityValue) {
+    if (isValid(titleValue) && isValid(descriptionValue)) {
       dispatch({
         type: "ADD_TASK",
         payload: {
@@ -31,7 +33,7 @@ export default function Tasks({ status, tasks, board }) {
   };
 
   return (
-    <div className="tasks">
+    <div className="single-board">
       <h2>{status}</h2>
       {tasks.map((task) => {
         return (
@@ -41,9 +43,10 @@ export default function Tasks({ status, tasks, board }) {
         );
       })}
       {inAddMode ? (
-        <div>
+        <div className="task">
           <div>
             <input
+              className="title-desc-input"
               placeholder="title"
               onChange={(e) => {
                 setTitleValue(e.target.value);
@@ -52,6 +55,7 @@ export default function Tasks({ status, tasks, board }) {
           </div>
           <div>
             <input
+              className="title-desc-input"
               placeholder="description"
               onChange={(e) => {
                 setDescriptionValue(e.target.value);
@@ -60,17 +64,34 @@ export default function Tasks({ status, tasks, board }) {
           </div>
           <div>
             priority:{" "}
-            <select onChange={(e) => setPriorityValue(e.target.value)}>
+            <select
+              className="priority-select"
+              value={priorityValue}
+              onChange={(e) => setPriorityValue(e.target.value)}
+            >
               <option value="low">low</option>
               <option value="medium">medium</option>
               <option value="high">high</option>
             </select>
           </div>
-          <button onClick={handleSave}>Save</button>
-          <button onClick={() => setInAddMode(false)}>cancel</button>
+          <div className="visit-delete-btns">
+            <button className="visit-delete" onClick={handleSave}>
+              Save
+            </button>
+            <button
+              className="visit-delete"
+              onClick={() => setInAddMode(false)}
+            >
+              cancel
+            </button>
+          </div>
         </div>
       ) : (
-        <button onClick={() => setInAddMode(true)}>Add task</button>
+        <div className="add-btn-wrapper">
+          <button className="add-btn" onClick={() => setInAddMode(true)}>
+            +
+          </button>
+        </div>
       )}
     </div>
   );
